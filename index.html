@@ -2,173 +2,21 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status: 22nd_Orbit_Completed</title>
+    <title>Accessing...</title>
     <style>
-        :root {
-            --primary-color: #2D3436;
-            --accent-glow: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
-            --text-main: #2D3436;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* 动态氛围感背景 */
-        .ambient-bg {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: var(--accent-glow);
-            filter: blur(80px);
-            z-index: -1;
-            animation: drift 15s ease infinite alternate;
-        }
-
-        @keyframes drift {
-            from { transform: rotate(0deg) translate(-10%, -10%); }
-            to { transform: rotate(10deg) translate(10%, 10%); }
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 30px;
-            padding: 50px;
-            width: 85%;
-            max-width: 450px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .code-header {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #636e72;
-            margin-bottom: 2rem;
-            border-left: 3px solid #636e72;
-            padding-left: 15px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 0 0 1.5rem 0;
-            letter-spacing: -1px;
-            color: var(--text-main);
-        }
-
-        .message-body {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #4b4b4b;
-        }
-
-        .terminal-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.2rem;
-            background: #2d3436;
-            margin-left: 5px;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .tag-container {
-            margin-top: 2rem;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: #636e72;
-        }
-
-        .action-btn {
-            margin-top: 2.5rem;
-            background: #2d3436;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            background: #000;
-        }
-
-        #hidden-message {
-            display: none;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: #2d3436;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-        }
+        body { background: #1a1a1a; color: #00ff00; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .terminal { width: 90%; max-width: 500px; }
+        .btn-enter { color: #00ff00; border: 1px solid #00ff00; background: transparent; padding: 10px 20px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 20px; }
+        .btn-enter:hover { background: rgba(0,255,0,0.1); }
     </style>
 </head>
 <body>
-
-<div class="ambient-bg"></div>
-
-<div class="glass-panel">
-    <div class="code-header">
-        import { Success } from 'Future_Grid';<br>
-        // Instance: Age_22
+    <div class="terminal">
+        <p>> System.identify(Target_User);</p>
+        <p>> Status: Special_Day_Detected...</p>
+        <p>> Access_Level: Friends_Only</p>
+        <p>> Question: 准备好进入 22 岁的更新包了吗？</p>
+        <a href="main.html" class="btn-enter">Confirm && Enter</a>
     </div>
-    
-    <h1>你好，22 岁。</h1>
-    
-    <div class="message-body">
-        祝生日快乐，祝自由、快乐、且富有。<br>
-        愿你在备考的枯燥里也能发现微光，<br>
-        在未来的电网蓝图里，占领一个坐标。<span class="terminal-cursor"></span>
-    </div>
-
-    <div class="tag-container">
-        <span class="tag"># 农历二月廿六</span>
-        <span class="tag"># 电网上岸</span>
-        <span class="tag"># 学习顺利</span>
-    </div>
-
-    <button class="action-btn" onclick="reveal()">执行“开心”指令</button>
-    
-    <div id="hidden-message">
-        已收到返回请求：[Success] <br>
-        那就祝你今年：逢考必过，万事胜意！
-    </div>
-</div>
-
-<script>
-    function reveal() {
-        document.getElementById('hidden-message').style.display = 'block';
-        document.querySelector('.action-btn').style.display = 'none';
-    }
-</script>
-
 </body>
 </html>
